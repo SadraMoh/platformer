@@ -1,21 +1,13 @@
-import { Component, OnInit, TypeDecorator } from '@angular/core';
+import * as Matter from 'matter-js';
 import { EngineService } from 'src/app/engine/engine.service';
-import { Obj } from '../obj.decorator';
+import { ObjBase } from '../../obj.base';
 
-@Obj()
-@Component({
-  selector: 'block',
-  template: `<div name="block"></div>`
-})
-export class BlockComponent implements OnInit{
+export class BlockComponent extends ObjBase {
+
+  body: Matter.Body = Matter.Bodies.circle(50, 50, 16, { isStatic: true });
 
   constructor() {
-    console.log('e');
-    
-  }  
-
-  ngOnInit(): void {
-    
+    super()
   }
 
 }
